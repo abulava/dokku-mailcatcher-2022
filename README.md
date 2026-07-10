@@ -4,6 +4,17 @@ Run [MailCatcher](https://mailcatcher.me/) in Dokku. Deploy it next to a target 
 
 Tested with **heroku-20** stack, should work with **heroku-18** one too.
 
+## ⚠️ Repository status
+
+This repository will become read-only. GitHub code scanning has reported a number of security vulnerabilities in this codebase. These stem from the pinned Ruby version (`2.7.6`), the `mailcatcher` gem, and the outdated **heroku-20** and **heroku-18** build stacks, and since the project is no longer maintained, they will not be fixed here. If you intend to use this project, you are on your own to update Ruby, the `mailcatcher` gem, and the build stacks in order to resolve those vulnerabilities.
+
+## 🔮 Future plans: migrating to Mailpit
+
+In the future, I plan to move away from MailCatcher in favor of [Mailpit](https://github.com/axllent/mailpit). Reasons for the switch:
+
+1. **No dependency on Ruby in the dev environment.** Mailpit ships as a single Go binary, removing the need to maintain a Ruby toolchain, `.ruby-version`, `Gemfile`, and the vulnerabilities associated with them.
+2. **Actively maintained at the moment.** Unlike MailCatcher, which is in maintenance mode and only receives critical fixes, Mailpit is under active development.
+
 ## Simple usage
 
 ### Issues upon server reboot
@@ -34,6 +45,6 @@ Dokku 0.20.0+, Docker 1.21+.
 6. Set the target app to deliver emails to **smtp://mailcatcher.web:1025** (SMTP server address **mailcatcher.web** and port **1025**).
 
 ## License
-Copyright © 2022 [Andrey Bulava](https://github.com/abulava). Released under the MIT License, see [LICENSE][license] for details.
+Copyright © 2022-2026 [Andrey Bulava](https://github.com/abulava). Released under the MIT License, see [LICENSE][license] for details.
 
   [license]: https://github.com/abulava/dokku-mailcatcher-2022/blob/master/LICENSE
